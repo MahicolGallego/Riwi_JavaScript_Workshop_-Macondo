@@ -1,18 +1,18 @@
-// //Variables
+//Variables
 
 let hildebrandoMoney = 2500000;
 
-// const productsFirstAirport = [
-//   { product: 'almohabana y gaseosa', price: 15000 },
-//   { product: 'subway y gaseosa', price: 23000 },
-// ];
+const productsFirstAirport = [
+  { product: 'almohabana y gaseosa', price: 15000 },
+  { product: 'subway y gaseosa', price: 23000 },
+];
 
-// const productsSecondAirport = [
-//   { product: 'salchipapa', price: 21000 },
-//   { product: 'combo macdonals', price: 18000 },
-// ];
+const productsSecondAirport = [
+  { product: 'salchipapa', price: 21000 },
+  { product: 'combo macdonals', price: 18000 },
+];
 
-// const arrayRockPaperExcisor = ['piedra', 'papel', 'tijeras'];
+const arrayRockPaperExcisor = ['piedra', 'papel', 'tijeras'];
 
 const activitysDependShirtColor = [
   {
@@ -32,7 +32,6 @@ const activitysDependShirtColor = [
       "voleibol",
       "nadar",
       "montar moto",
-      "caminatas",
       "tomar cocteles",
     ],
   },
@@ -43,23 +42,23 @@ const activitysDependShirtColor = [
   },
 ];
 
-// //Functions
-// function convertTextAnyWithVowelI(text) {
-//   const vowelRule = new RegExp('[aeiou]');
+//Functions
+function convertTextAnyWithVowelI(text) {
+  const vowelRule = new RegExp('[aeiou]');
 
-//   const textI = text
-//     .split('')
-//     .map((element) => {
-//       if (vowelRule.test(element)) {
-//         let elementI = element.replace(element, 'i');
-//         return elementI;
-//       }
-//       return element;
-//     })
-//     .join('');
+  const textI = text
+    .split('')
+    .map((element) => {
+      if (vowelRule.test(element)) {
+        let elementI = element.replace(element, 'i');
+        return elementI;
+      }
+      return element;
+    })
+    .join('');
 
-//   return textI;
-// }
+  return textI;
+}
 
 function activitiesOpt(list, colorShirtSelected) {
   let message = "";
@@ -67,7 +66,7 @@ function activitiesOpt(list, colorShirtSelected) {
   list.forEach((element) => {
     if (element.colorShirt === colorShirtSelected) {
       for (let i = 0; i < element.availablesActivities.length; i++) {
-        message += `${element.availablesActivities[i]}\n`;
+        message += `-> ${element.availablesActivities[i]}\n`;
       }
     }
   });
@@ -75,192 +74,192 @@ function activitiesOpt(list, colorShirtSelected) {
   return message;
 }
 
-// //Program
+//Program
 
-// //Primera parte case 1
+//Primera parte case 1
 
-// let userActionFirstOptionToEat;
-// do {
-//   userActionFirstOptionToEat = prompt(
-//     'Estas en el aeropuerto el dorado. ¿Que deseas hacer?\n1. Comprar comida.\n2. Comprar comida en medellin'
-//   ).trim();
-// } while (
-//   userActionFirstOptionToEat !== '1' &&
-//   userActionFirstOptionToEat !== '2'
-// );
+let userActionFirstOptionToEat;
+do {
+  userActionFirstOptionToEat = prompt(
+    'Estas en el aeropuerto el dorado. ¿Que deseas hacer?\n1. Comprar comida.\n2. Comprar comida en medellin'
+  ).trim();
+} while (
+  userActionFirstOptionToEat !== '1' &&
+  userActionFirstOptionToEat !== '2'
+);
 
-// //Si selecciona no comer
+//Si selecciona no comer
 
-// if (userActionFirstOptionToEat === '2') {
-//   alert('Ok puedes comprar productos en medellin...');
-// } else {
-//   //Si selecciona comer
+if (userActionFirstOptionToEat === '2') {
+  alert('Ok puedes comprar productos en medellin...');
+} else {
+  //Si selecciona comer
 
-//   let message = '';
-//   const indexProductsAllow = [];
-//   productsFirstAirport.forEach((element, index) => {
-//     message =
-//       message +
-//       `\n${index + 1}. Producto: ${element.product}\nPrecio: $${element.price}`;
-//     indexProductsAllow.push(index);
-//   });
+  let message = '';
+  const indexProductsAllow = [];
+  productsFirstAirport.forEach((element, index) => {
+    message =
+      message +
+      `\n${index + 1}. Producto: ${element.product}\nPrecio: $${element.price}`;
+    indexProductsAllow.push(index);
+  });
 
-//   let purchasedProduct;
+  let purchasedProduct;
 
-//   do {
-//     purchasedProduct = Number(prompt(`Lista de productos: ${message}`).trim());
-//   } while (!indexProductsAllow.includes(purchasedProduct - 1));
+  do {
+    purchasedProduct = Number(prompt(`Lista de productos: ${message}`).trim());
+  } while (!indexProductsAllow.includes(purchasedProduct - 1));
 
-//   hildebrandoMoney -= productsFirstAirport[purchasedProduct - 1].price;
-//   alert(`Compra realizada\nDinero actual = $${hildebrandoMoney}`);
+  hildebrandoMoney -= productsFirstAirport[purchasedProduct - 1].price;
+  alert(`Compra realizada\nDinero actual = $${hildebrandoMoney}`);
 
-//   if (purchasedProduct - 1 === 0) alert('Levas mucho en el stand y te cae mal');
-//   else alert('Buena eleccion. Vas lleno y bien');
-// }
+  if (purchasedProduct - 1 === 0) alert('Levas mucho en el stand y te cae mal');
+  else alert('Buena eleccion. Vas lleno y bien');
+}
 
-// // Case 2
+// Case 2
 
-// alert(
-//   'llegas a la sala de espera, y tu maleta no cumple con el tamaño de maleta de mano permitido.\n\nPermitidos\nAlto: 55cm\nLargo: 40cm\nAncho: 20cm\n\nTu maleta\nAlto: 60cm\nLargo: 40cm\nAncho: 20cm'
-// );
+alert(
+  'llegas a la sala de espera, y tu maleta no cumple con el tamaño de maleta de mano permitido.\n\nPermitidos\nAlto: 55cm\nLargo: 40cm\nAncho: 20cm\n\nTu maleta\nAlto: 60cm\nLargo: 40cm\nAncho: 20cm'
+);
 
-// const heigthSuitcase = 60;
-// const widthSuitcase = 20;
-// const largeSuitcase = 40;
+const heigthSuitcase = 60;
+const widthSuitcase = 20;
+const largeSuitcase = 40;
 
-// const heigthAllowed = 55;
-// const widthAllowed = 20;
-// const largeAllowed = 40;
+const heigthAllowed = 55;
+const widthAllowed = 20;
+const largeAllowed = 40;
 
-// const reductionFactorHeigth = heigthAllowed / heigthSuitcase;
-// const reductionFactorWidth = widthAllowed / widthSuitcase;
-// const reductionFactorLarge = largeAllowed / largeSuitcase;
+const reductionFactorHeigth = heigthAllowed / heigthSuitcase;
+const reductionFactorWidth = widthAllowed / widthSuitcase;
+const reductionFactorLarge = largeAllowed / largeSuitcase;
 
-// // Factor de reducción mas pequeño
+// Factor de reducción mas pequeño
 
-// const generalReductionFActor = Math.min(
-//   reductionFactorHeigth,
-//   reductionFactorLarge,
-//   reductionFactorWidth
-// );
+const generalReductionFActor = Math.min(
+  reductionFactorHeigth,
+  reductionFactorLarge,
+  reductionFactorWidth
+);
 
-// //Calcular las nuevas dimensiones para la maleta
+//Calcular las nuevas dimensiones para la maleta
 
-// const newHeigthSuitcase = Number(
-//   (heigthSuitcase * generalReductionFActor).toFixed(2)
-// );
-// const newWidthSuitcase = Number(
-//   (widthSuitcase * generalReductionFActor).toFixed(2)
-// );
-// const newLargeSuitcase = Number(
-//   (largeSuitcase * generalReductionFActor).toFixed(2)
-// );
+const newHeigthSuitcase = Number(
+  (heigthSuitcase * generalReductionFActor).toFixed(2)
+);
+const newWidthSuitcase = Number(
+  (widthSuitcase * generalReductionFActor).toFixed(2)
+);
+const newLargeSuitcase = Number(
+  (largeSuitcase * generalReductionFActor).toFixed(2)
+);
 
-// alert(
-//   `Debes sacar elementos hasta que la maleta tenga minimo las siguientes nuevas dimensiones:\n\nAlto: ${newHeigthSuitcase}cm\nLargo: ${newLargeSuitcase}cm\nAncho: ${newWidthSuitcase}cm`
-// );
+alert(
+  `Debes sacar elementos hasta que la maleta tenga minimo las siguientes nuevas dimensiones:\n\nAlto: ${newHeigthSuitcase}cm\nLargo: ${newLargeSuitcase}cm\nAncho: ${newWidthSuitcase}cm`
+);
 
-// //Continuacion case 1 si hildebrando no compro comida en el dorado
+//Continuacion case 1 si hildebrando no compro comida en el dorado
 
-// alert('Llegas a medellin');
+alert('Llegas a medellin');
 
-// if (userActionFirstOptionToEat === '2') {
-//   let message = '';
-//   const indexProductsAllow = [];
-//   productsSecondAirport.forEach((element, index) => {
-//     message =
-//       message +
-//       `\n${index + 1}. Producto: ${element.product}\nPrecio: $${element.price}`;
-//     indexProductsAllow.push(index);
-//   });
+if (userActionFirstOptionToEat === '2') {
+  let message = '';
+  const indexProductsAllow = [];
+  productsSecondAirport.forEach((element, index) => {
+    message =
+      message +
+      `\n${index + 1}. Producto: ${element.product}\nPrecio: $${element.price}`;
+    indexProductsAllow.push(index);
+  });
 
-//   let purchasedProduct;
+  let purchasedProduct;
 
-//   do {
-//     purchasedProduct = Number(
-//       prompt(
-//         `No consumiste alimentos en el dorado, debes comer algo.\n\nLista de productos: ${message}`
-//       ).trim()
-//     );
-//   } while (!indexProductsAllow.includes(purchasedProduct - 1));
+  do {
+    purchasedProduct = Number(
+      prompt(
+        `No consumiste alimentos en el dorado, debes comer algo.\n\nLista de productos: ${message}`
+      ).trim()
+    );
+  } while (!indexProductsAllow.includes(purchasedProduct - 1));
 
-//   hildebrandoMoney -= productsSecondAirport[purchasedProduct - 1].price;
+  hildebrandoMoney -= productsSecondAirport[purchasedProduct - 1].price;
 
-//   alert(`Compra realizada\nDinero actual = $${hildebrandoMoney}`);
-// }
+  alert(`Compra realizada\nDinero actual = $${hildebrandoMoney}`);
+}
 
-// // Case 3
+// Case 3
 
-// alert(
-//   'Te encuentras con el problema de que el wifi del aeropuerto está fallando, y necesitas asegurar tu reserva en el hotel para el siguiente día, caminando por el aeropuerto encuentra wifi, la red se llama " ElPassEs: 01110010_01101001_01110111_01101001", pero la contraseña está cifrada en números binarios, además cobran 50.000 la hora.'
-// );
+alert(
+  'Te encuentras con el problema de que el wifi del aeropuerto está fallando, y necesitas asegurar tu reserva en el hotel para el siguiente día, caminando por el aeropuerto encuentra wifi, la red se llama " ElPassEs: 01110010_01101001_01110111_01101001", pero la contraseña está cifrada en números binarios, además cobran 50.000 la hora.'
+);
 
-// const encryptedKey = '01110010_01101001_01110111_01101001';
+const encryptedKey = '01110010_01101001_01110111_01101001';
 
-// const binaryPartition = encryptedKey
-//   .split('_')
-//   .map((element) => parseInt(element, 2));
+const binaryPartition = encryptedKey
+  .split('_')
+  .map((element) => parseInt(element, 2));
 
-// let decryptedKey = '';
+let decryptedKey = '';
 
-// console.log(binaryPartition);
+console.log(binaryPartition);
 
-// binaryPartition.forEach((element) => {
-//   decryptedKey += String.fromCharCode(element);
-// });
+binaryPartition.forEach((element) => {
+  decryptedKey += String.fromCharCode(element);
+});
 
-// hildebrandoMoney = hildebrandoMoney - 50000;
+hildebrandoMoney = hildebrandoMoney - 50000;
 
-// alert(
-//   `Descifrando la clave...\n\nAl fin, la clave es: ${decryptedKey}\nHay que descifrar la clave y encima pagar $50.000. Que descaro\nDinero actual = $${hildebrandoMoney}`
-// );
+alert(
+  `Descifrando la clave...\n\nAl fin, la clave es: ${decryptedKey}\nHay que descifrar la clave y encima pagar $50.000. Que descaro\nDinero actual = $${hildebrandoMoney}`
+);
 
-// //case 4
+//case 4
 
-// alert('Al fin llegas a Macondo\n\n');
+alert('Al fin llegas a Macondo\n\n');
 
-// alert(
-//   'Ahora se da cuenta que todos hablan diferente, solo hablan con la la vocal i\nGenial hay que traducir...'
-// );
+alert(
+  'Ahora se da cuenta que todos hablan diferente, solo hablan con la la vocal i\nGenial hay que traducir...'
+);
 
-// const normalText = 'Taxi me puede llevar al hotel mariposas amarillas';
+const normalText = 'Taxi me puede llevar al hotel mariposas amarillas';
 
-// const TextWithAnyVowelI = convertTextAnyWithVowelI(normalText);
+const TextWithAnyVowelI = convertTextAnyWithVowelI(normalText);
 
-// alert(
-//   `${TextWithAnyVowelI}\n\nJoder... No puedo creer cuanto me costo articular eso\n\nToma el taxi y momentos despues llega al hotel...el taxi, le pide que le 300.000 pesos, y el queda sorprendido, asi que empieza a negociar con él, y le dice que, si le gana papel piedra o tijera, le pagara los 300.000, pero si el taxista pierde, no le cobra nada\n\nEs un trato\nEs hora del du du du duelo...\n...`
-// );
+alert(
+  `${TextWithAnyVowelI}\n\nJoder... No puedo creer cuanto me costo articular eso\n\nToma el taxi y momentos despues llega al hotel...el taxi, le pide que le 300.000 pesos, y el queda sorprendido, asi que empieza a negociar con él, y le dice que, si le gana papel piedra o tijera, le pagara los 300.000, pero si el taxista pierde, no le cobra nada\n\nEs un trato\nEs hora del du du du duelo...\n...`
+);
 
-// // Case 5
+// Case 5
 
-// const optGameDriver =
-//   arrayRockPaperExcisor[
-//     Math.round(Math.random() * (arrayRockPaperExcisor.length - 1))
-//   ];
+const optGameDriver =
+  arrayRockPaperExcisor[
+    Math.round(Math.random() * (arrayRockPaperExcisor.length - 1))
+  ];
 
-// const optGameHildebrando =
-//   arrayRockPaperExcisor[
-//     Math.round(Math.random() * (arrayRockPaperExcisor.length - 1))
-//   ];
+const optGameHildebrando =
+  arrayRockPaperExcisor[
+    Math.round(Math.random() * (arrayRockPaperExcisor.length - 1))
+  ];
 
-// alert(
-//   `Hildebrando -> ${optGameHildebrando}  vs  ${optGameDriver} <- Conductor`
-// );
+alert(
+  `Hildebrando -> ${optGameHildebrando}  vs  ${optGameDriver} <- Conductor`
+);
 
-// if (
-//   (optGameDriver === 'tijeras' && optGameHildebrando === 'papel') ||
-//   (optGameDriver === 'piedra' && optGameHildebrando === 'tijeras') ||
-//   (optGameDriver === 'papel' && optGameHildebrando === 'piedra')
-// ) {
-//   hildebrandoMoney -= 300000;
-//   alert(
-//     `Hoy realmente no es mi dia, tu ganas viejo, toma los $300000\n\nDinero actual = $${hildebrandoMoney}`
-//   );
-// } else {
-//   alert(`Bien viaje gratis, $300000 por un viaje, claro, que estafa`);
-// }
+if (
+  (optGameDriver === 'tijeras' && optGameHildebrando === 'papel') ||
+  (optGameDriver === 'piedra' && optGameHildebrando === 'tijeras') ||
+  (optGameDriver === 'papel' && optGameHildebrando === 'piedra')
+) {
+  hildebrandoMoney -= 300000;
+  alert(
+    `Hoy realmente no es mi dia, tu ganas viejo, toma los $300000\n\nDinero actual = $${hildebrandoMoney}`
+  );
+} else {
+  alert(`Bien viaje gratis, $300000 por un viaje, claro, que estafa`);
+}
 
-// // Case 6
+// Case 6
 
 alert("Por fin llegas al hotel. Te quedaras 4 dias");
 
@@ -378,6 +377,107 @@ vacationsInMacondo: for (daysInMacondo; daysInMacondo < 5; daysInMacondo++) {
         alert("Se devuelve solo y de noche, se pierde");
       }
       break;
+    case "roja":
+      while (true) {
+        selectActivity = prompt(
+          `Actividades disponibles:\n\n${activitiesOpt(
+            activitysDependShirtColor,
+            selectShirtToWear
+          )}si no desea hacer nada hoy, presiona enter`
+        )
+          .trim()
+          .toLowerCase();
+
+        if (
+          activitysDependShirtColor[2].availablesActivities.includes(
+            selectActivity
+          ) ||
+          !selectActivity
+        ) {
+          break;
+        }
+        alert("Por favor indica una opcion valida");
+      }
+
+      if (!selectActivity) {
+        alert("Al final decides no hacer nada, y simplemente estar por ahi");
+        break;
+      } else {
+        if(selectActivity === "voleibol"){
+          hildebrandoMoney -= 40000;
+          alert(`Pagas el valor de inscripcion al torneo: -$40000\n\nJuega y la pasa genial`);
+          break;
+        }else if(selectActivity === "nadar"){
+          alert(`Nada en el mar y pasa un buen dias`);
+          break;
+        }else if(selectActivity === "montar moto"){
+          hildebrandoMoney -= 120000;
+          alert(`Pagas el valor para montar en moto acuatica: -$120000\nMonta moto acuatica y se la pasa genial`);
+          break;
+        }else{
+          hildebrandoMoney -= (300000 + 90000) 
+          alert("Toma cocteles mientras descansa, de pronto siente un fuerte dolor de cabeza y empieza a perder la visión, chirrinchi adulterado, se tiene que devolver de emergencia. (terminan las vacaciones)\n\nSe descuentan lo que gasto en los cocteles -$90000 y el valor de los pasajes de regreso -300000");
+          break vacationsInMacondo;
+        }
+      }
+      case "azul":
+        while (true) {
+          selectActivity = prompt(
+            `Actividades disponibles:\n\n${activitiesOpt(
+              activitysDependShirtColor,
+              selectShirtToWear
+            )}si no desea hacer nada hoy, presiona enter`
+          )
+            .trim()
+            .toLowerCase();
+  
+          if (
+            activitysDependShirtColor[3].availablesActivities.includes(
+              selectActivity
+            ) ||
+            !selectActivity
+          ) {
+            break;
+          }
+          alert("Por favor indica una opcion valida");
+        }
+  
+        if (!selectActivity) {
+          alert("Al final decides no hacer nada, y simplemente estar por ahi");
+          break;
+        } else {
+          if(selectActivity === "bingo"){
+            const arrayWinBingo = [100000, 85000, 130000]
+            const moneyForWinBingo = arrayWinBingo[Math.round(Math.random() * (arrayWinBingo.length - 1))]
+            hildebrandoMoney -= moneyForWinBingo
+            alert(`Juega, lo gana y aumenta su dinero\nTu premio = ${moneyForWinBingo}`);
+            break;
+          }else if(selectActivity === "bailar"){
+            hildebrandoMoney -= 50000;
+            alert(`Pagas el valor del cover: -$50000\nBaila y la pasa genial`);
+            break;
+          }else{
+            while (true) {
+              performActivity = prompt(
+                `Entra al casino y da un vistazo a los juegos\n\n¿Jugar y apostar?\nY: si\nN: no`
+              )
+                .trim()
+                .toLowerCase();
+              if (performActivity === "y" || performActivity === "n") {
+                break;
+              }
+            }
+    
+            if (performActivity === "y") {
+              alert("Se envicia y juega hasta tener solo lo de los pasajes de regreso\n\nRegresa a casa sin un peso");
+              hildebrandoMoney = 0;
+              break vacationsInMacondo;
+            }
+            alert("Te dedicas a mirar los juegos de los demas y a especular que hubieses hecho tu en esa situacion");
+            break;
+          }
+        }
+        
     default:
       break;
   }
@@ -386,6 +486,7 @@ vacationsInMacondo: for (daysInMacondo; daysInMacondo < 5; daysInMacondo++) {
   if (daysInMacondo === 4) {
     alert("Se descuenta el costo de los pasajes de regreso. $-300000");
     hildebrandoMoney -= 300000;
+    break;
   }
 }
 
