@@ -1,6 +1,6 @@
 // //Variables
 
-// let hildebrandoMoney = 2500000;
+let hildebrandoMoney = 2500000;
 
 // const productsFirstAirport = [
 //   { product: 'almohabana y gaseosa', price: 15000 },
@@ -16,36 +16,30 @@
 
 const activitysDependShirtColor = [
   {
-    colorShirt: 'amarillo',
-    activitiesType: 'piscina',
-    availablesActivities: ['-> piscina'],
+    colorShirt: "amarillo",
+    activitiesType: "piscina",
+    availablesActivities: ["piscina"],
   },
   {
-    colorShirt: 'verde',
-    activitiesType: 'caminatas',
-    availablesActivities: ['-> caminatas'],
+    colorShirt: "verde",
+    activitiesType: "caminatas",
+    availablesActivities: ["caminatas"],
   },
   {
-    colorShirt: 'roja',
-    activitiesType: 'actividades en la playa',
+    colorShirt: "roja",
+    activitiesType: "actividades en la playa",
     availablesActivities: [
-      '-> voleibol',
-      '-> nadar',
-      '-> montar moto',
-      '-> caminatas',
-      '-> tomar cocteles',
+      "voleibol",
+      "nadar",
+      "montar moto",
+      "caminatas",
+      "tomar cocteles",
     ],
   },
   {
-    colorShirt: 'azul',
-    activitiesType: 'actividades dentro del hotel',
-    availablesActivities: [
-      '-> voleibol',
-      '-> nadar',
-      '-> montar moto',
-      '-> caminatas',
-      '-> tomar cocteles',
-    ],
+    colorShirt: "azul",
+    activitiesType: "actividades dentro del hotel",
+    availablesActivities: ["bingo", "bailar", "casino"],
   },
 ];
 
@@ -68,7 +62,7 @@ const activitysDependShirtColor = [
 // }
 
 function activitiesOpt(list, colorShirtSelected) {
-  let message = '';
+  let message = "";
 
   list.forEach((element) => {
     if (element.colorShirt === colorShirtSelected) {
@@ -268,31 +262,34 @@ function activitiesOpt(list, colorShirtSelected) {
 
 // // Case 6
 
-alert('Por fin llegas al hotel. Te quedaras 4 dias');
+alert("Por fin llegas al hotel. Te quedaras 4 dias");
 
-for (let i = 1; i < 5; i++) {
+let daysInMacondo = 1;
+let isHeDeath = false;
+
+vacationsInMacondo: for (daysInMacondo; daysInMacondo < 5; daysInMacondo++) {
   let selectShirtToWear;
   while (true) {
     selectShirtToWear = prompt(
-      `Dia ${i}\n\nCuentan con un codigo de vestimentas para poder hacer actividades\n\n${activitysDependShirtColor[0].colorShirt} : ${activitysDependShirtColor[0].activitiesType}\n${activitysDependShirtColor[1].colorShirt} : ${activitysDependShirtColor[1].activitiesType}\n${activitysDependShirtColor[2].colorShirt} : ${activitysDependShirtColor[2].activitiesType}\n${activitysDependShirtColor[3].colorShirt} : ${activitysDependShirtColor[3].activitiesType}\n\nIndica el color de camiseta a ponerte hoy, si no desea hacer nada hoy, presiona enter`
+      `Dia ${daysInMacondo}\n\nCuentan con un codigo de vestimentas para poder hacer actividades\n\n${activitysDependShirtColor[0].colorShirt} : ${activitysDependShirtColor[0].activitiesType}\n${activitysDependShirtColor[1].colorShirt} : ${activitysDependShirtColor[1].activitiesType}\n${activitysDependShirtColor[2].colorShirt} : ${activitysDependShirtColor[2].activitiesType}\n${activitysDependShirtColor[3].colorShirt} : ${activitysDependShirtColor[3].activitiesType}\n\nIndica el color de camiseta a ponerte hoy, si no desea hacer nada hoy, presiona enter`
     )
       .trim()
       .toLowerCase();
 
     if (
-      ['amarillo', 'azul', 'verde', 'roja'].includes(selectShirtToWear) ||
+      ["amarillo", "azul", "verde", "roja"].includes(selectShirtToWear) ||
       !selectShirtToWear
     ) {
       break;
     }
-    alert('Por favor indica una opcion valida');
+    alert("Por favor indica una opcion valida");
   }
 
   switch (selectShirtToWear) {
-    case '':
-      alert('Decides simplemente existir y relajarte por ahi todo el dia');
+    case "":
+      alert("Decides simplemente existir y relajarte por ahi todo el dia");
       break;
-    case 'amarillo':
+    case "amarillo":
       while (true) {
         selectActivity = prompt(
           `Actividades disponibles:\n\n${activitiesOpt(
@@ -305,22 +302,96 @@ for (let i = 1; i < 5; i++) {
 
         if (
           activitysDependShirtColor[0].availablesActivities.includes(
-            selectShirtToWear
+            selectActivity
           ) ||
-          selectActivity
+          !selectActivity
         ) {
           break;
         }
-        alert('Por favor indica una opcion valida');
+        alert("Por favor indica una opcion valida");
       }
-      if (!selectShirtToWear) {
-        alert('Al final decides no hacer nada, y simplemente estar por ahi');
+      if (!selectActivity) {
+        alert("Al final decides no hacer nada, y simplemente estar por ahi");
         break;
       } else {
+        while (true) {
+          performActivity = prompt(
+            `el agua huele raro, pero no le da importancia\n\n¿Entrar a la piscina?\nY: si\nN: no`
+          )
+            .trim()
+            .toLowerCase();
+          if (performActivity === "y" || performActivity === "n") {
+            break;
+          }
+        }
+        if (performActivity === "y") {
+          alert(
+            "Empieza a sentirse ahogado, demasiado cloro, muere\n(terminan las vacaciones)"
+          );
+          isHeDeath = true;
+          break vacationsInMacondo;
+        }
+        alert("Simplemente tomas el sol y estas por ahi tranquilamente");
       }
+      break;
+    case "verde":
+      while (true) {
+        selectActivity = prompt(
+          `Actividades disponibles:\n\n${activitiesOpt(
+            activitysDependShirtColor,
+            selectShirtToWear
+          )}si no desea hacer nada hoy, presiona enter`
+        )
+          .trim()
+          .toLowerCase();
 
+        if (
+          activitysDependShirtColor[1].availablesActivities.includes(
+            selectActivity
+          ) ||
+          !selectActivity
+        ) {
+          break;
+        }
+        alert("Por favor indica una opcion valida");
+      }
+      if (!selectActivity) {
+        alert("Al final decides no hacer nada, y simplemente estar por ahi");
+        break;
+      } else {
+        while (true) {
+          hildebrandoMoney -= 40000;
+          performActivity = prompt(
+            `Se paga el plan: -$40000\n\nCaminatas, y agüita para el camino...\n\nEmpiezas a sentirte algo cansado. ¿Continuar la caminata hasta el final?\nY: si\nN: no`
+          )
+            .trim()
+            .toLowerCase();
+          if (performActivity === "y" || performActivity === "n") {
+            break;
+          }
+        }
+
+        if (performActivity === "y") {
+          alert("Llega a una hermosa cascada y se toma fotos");
+          break;
+        }
+        alert("Se devuelve solo y de noche, se pierde");
+      }
       break;
     default:
       break;
   }
+
+  // Si es capza de regresar, restar costo de los pasajes de vuelta
+  if (daysInMacondo === 4) {
+    alert("Se descuenta el costo de los pasajes de regreso. $-300000");
+    hildebrandoMoney -= 300000;
+  }
 }
+
+// Resumen de las vacaiones
+alert(
+  `Dias en macondo: ${daysInMacondo}\n¿Pudo regresar?: ${
+    isHeDeath ? "Ha muerto" : "regreso a casa"
+  }\nDinero despues del viaje: $${hildebrandoMoney}`
+);
